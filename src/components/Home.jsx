@@ -92,7 +92,7 @@ let Home = () => {
       <div className="flex flex-col items-center justify-start p-5 w-[300px] h-auto" style={glass}>
       <i className="fas fa-calculator text-[#2bae8f] text-[60px] my-2"></i>
       <h1 className="text-white font-semibold my-3 text-2xl opacity-50">CGPA CALCULATOR</h1>
-      <form className="flex flex-col items-center justify-start">
+      <form className="flex flex-col items-center justify-start w-full">
         {display == 1 ? (
           <>
             <label className="text-white font-semibold my-3 text-2xl opacity-80 tracking-wider" htmlFor="marks">{subjects[iterator].subject}</label>
