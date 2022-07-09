@@ -12,18 +12,18 @@ let Home = () => {
     number >= 94
       ? (num = 10)
       : number >= 85 && number < 94
-      ? (num = 9)
-      : number >= 77 && number < 85
-      ? (num = 8)
-      : number >= 69 && number < 77
-      ? (num = 7)
-      : number >= 61 && number < 69
-      ? (num = 6)
-      : number >= 53 && number < 61
-      ? (num = 5)
-      : number >= 45 && number < 53
-      ? (num = 4)
-      : (num = 0);
+        ? (num = 9)
+        : number >= 77 && number < 85
+          ? (num = 8)
+          : number >= 69 && number < 77
+            ? (num = 7)
+            : number >= 61 && number < 69
+              ? (num = 6)
+              : number >= 53 && number < 61
+                ? (num = 5)
+                : number >= 45 && number < 53
+                  ? (num = 4)
+                  : (num = 0);
     return num * credit;
   };
   let changeHandler = (e) => {
@@ -80,26 +80,39 @@ let Home = () => {
       credit: 1,
     },
   ];
+  const glass= {
+    backdropFilter: "blur(16px) saturate(180%)",
+    webkitBackdropFilter: "blur(16px) saturate(180%)",
+    backgroundColor: "rgba(0, 159, 121, 0.15)",
+    borderRadius: "5px",
+    borderBottom: "1px solid rgba(76, 215, 240, 0.041)",
+  }
   return (
-    <div>
-      <form>
+    <div className="w-screen h-screen grid place-items-center bg-hero-pattern bg-cover font-OpenSans">
+      <div className="flex flex-col items-center justify-start p-5 w-[300px] h-auto" style={glass}>
+      <i className="fas fa-calculator text-[#2bae8f] text-[60px] my-2"></i>
+      <h1 className="text-white font-semibold my-3 text-2xl opacity-50">CGPA CALCULATOR</h1>
+      <form className="flex flex-col items-center justify-start">
         {display == 1 ? (
           <>
-            <label htmlFor="marks">{subjects[iterator].subject}</label>
+            <label className="text-white font-semibold my-3 text-2xl opacity-80 tracking-wider" htmlFor="marks">{subjects[iterator].subject}</label>
             <input
+              className="w-full rounded-md shadow-md bg-[#cbfff38c] border-none outline-none py-2 px-2 placeholder:text-[#1117] placeholder:font-OpenSans placeholder:font-semibold text-[#1118] font-semibold"
               required
+              placeholder="Enter marks"
               type="number"
               name="marks"
               value={value}
               onChange={changeHandler}
             />
-            <button onClick={clickHandler}>Next</button>
+            <button className="px-3 py-2 mt-5 bg-[#2bae8fc1] uppercase tracking-wider text-[#cbfff38c] font-medium hover:bg-[#2bae8f] hover:text-[#fff] hover:font-semibold rounded-sm transition shadow" onClick={clickHandler}>Next</button>
             <br />
           </>
         ) : display == 2 ? (
           <>
-            <label htmlFor="grade">IP Grade</label>
+            <label className="text-white font-semibold my-3 text-2xl opacity-80 tracking-wider" htmlFor="grade">IP Grade</label>
             <select
+              className="w-full rounded-md shadow-md bg-[#cbfff38c] border-none outline-none py-2 px-2 placeholder:text-[#1117] placeholder:font-OpenSans placeholder:font-semibold text-[#1118] font-semibold"
               name="grade"
               value={grade}
               onChange={(e) => {
@@ -116,14 +129,15 @@ let Home = () => {
               <option value="6">C+</option>
               <option value="5">C</option>
             </select>
-            <button onClick={gradeHandler}>Calculate</button>
+            <button className="px-3 py-2 mt-5 bg-[#2bae8fc1] uppercase tracking-wider text-[#cbfff38c] font-medium hover:bg-[#2bae8f] hover:text-[#fff] hover:font-semibold rounded-sm transition shadow" onClick={gradeHandler}>Calculate</button>
           </>
         ) : (
           <>
-            <h2>CGPA :: {marks / 24.0}</h2>
+            <h2 className="text-white font-semibold my-3 text-base opacity-90">CGPA :: {marks / 24.0}</h2>
           </>
         )}
       </form>
+      </div>
     </div>
   );
 };
