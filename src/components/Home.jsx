@@ -90,7 +90,7 @@ let Home = () => {
   ];
   const glass = {
     backdropFilter: "blur(16px) saturate(180%)",
-    webkitBackdropFilter: "blur(16px) saturate(180%)",
+    WebkitBackdropFilter: "blur(16px) saturate(180%)",
     backgroundColor: "rgba(0, 159, 121, 0.15)",
     borderRadius: "5px",
     borderBottom: "1px solid rgba(76, 215, 240, 0.041)",
